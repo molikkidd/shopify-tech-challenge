@@ -1,12 +1,14 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
   const [result, setResult] = useState();
   const [oprompt, setOprompt] = useState();
-
+  const [listOfResponses, setListOfResponses] = useState(Array);
+ 
   async function onSubmit(event) {
+
     event.preventDefault();
     const response = await fetch("/api/generate", {
       method: "POST",
@@ -15,11 +17,34 @@ export default function Home() {
       },
       body: JSON.stringify({ animal: animalInput }),
     });
+
     const data = await response.json();
+    console.log('data', data)
+    // push new data to list of responses
+    // setListOfResponses(data)
+    listOfResponses.push(data)
     setResult(data.result);
     setOprompt(data.text);
+    // resets animal input to an empty string
     setAnimalInput("");
   }
+
+  // listOfResponses.push({response:result, prompt: oprompt})
+
+console.log('listOfResponses', listOfResponses)
+
+  const responseList = listOfResponses.map((list, index) => {
+    console.log('list', list, 'and index', index)
+          return <div className='mt-4 bg-gray-300 rounded-md p-4' index={index}>
+                  <div className="mb-3">
+                    <h1>Prompt:{list.text}  </h1>  
+                  </div>
+                  <div>
+                    <h1>Response: {list.result}</h1>
+                  </div>
+                </div>
+
+  })
 
   return (
     <div>
@@ -53,7 +78,10 @@ export default function Home() {
               <div>
                 <h1>Response: {result}</h1>
               </div>
-              
+            </div>
+            <div className='mt-4 bg-gray-300 rounded-md p-4'>
+              {responseList}
+
             </div>
           </div>
         </div>
