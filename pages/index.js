@@ -31,25 +31,29 @@ export default function Home() {
       <main className=' h-screen'>
         <div className="flex justify-center">
           <div className="xl:w-96">
-          <h3 className="text-xl text-blue-400 mb-3 ">Name my pet</h3>
+          <h3 className="text-xl text-blue-400 mb-3 ">Lets Talk</h3>
 
           <form onSubmit={onSubmit}>
             <input
               type="text"
               name="animal"
-              placeholder="Enter an animal"
+              placeholder=" Whats on your mind ..."
               value={animalInput}
               onChange={(e) => setAnimalInput(e.target.value)} 
               className="w-96 h-40 rounded-md mb-3 border-zinc-900 border-2"
             />
             <button className="bg-blue-500 px-6 py-2 rounded-md text-white" type="submit">Lets Go</button>
           </form>
+            <div className='mt-4 bg-gray-300 rounded-md p-4' >
+              <h1 className="text-2xl font-semibold mb-2">Responses</h1>
 
-          <div className='mt-4'>
-            <h1 className="text-2xl font-semibold mb-2">Responses</h1>
-            Prompt: {oprompt}
-            Response: {result}
-            
+              <div className="mb-3">
+             <h1 >Prompt: {oprompt}</h1>  
+              </div>
+              <div>
+                <h1>Response: {result}</h1>
+              </div>
+              
             </div>
           </div>
         </div>
