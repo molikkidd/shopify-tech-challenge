@@ -1,19 +1,18 @@
 import React from 'react'
+import Navbar from './Navbar';
 
 export default function ChatBox(props) {
-    const {submit, responseList, setAnimalInput, animalInput, localData} = props;
+    const {submit, responseList, setAnimalInput, animalInput, sessionData} = props;
 
   return (
-    // bg-[url('https://media.istockphoto.com/vectors/seamless-geometric-vector-backgroundblack-figures-on-white-background-vector-id1175306662?k=20&m=1175306662&s=612x612&w=0&h=HGNeUeanPWWpL7jU6M4gwOSUZjHqWvtG50bRDooj5i0=')]"
-    <div className='bg-gradient-to-r from-sky-500 to-indigo-500'>
-
+    <div className='bg-gradient-to-r from-sky-500 to-white h-screen'>
+        <Navbar/>
     <div class="flex justify-center mx-20" >
-      {/* <div class="border rounded my-8 shadow-lg h-screen"> */}
         <div className='grid grid-cols-2 gap-20 my-8'>
-          <div class="w-full col-span-1 h-screen bg-blue-100  shadow-md"> 
+          <div class="w-full col-span-1 bg-blue-100 rounded-md shadow-md"> 
             {/* INTRO */}
-            <div class="relative w-full p-6 overflow-y-auto h-[40rem] bg-blue-100 mt-10">
-                <h2 className='mb-6'>This application is a chatbox, but instead of talking with other people, you will be talking to hopefully your favorite friend. Yourself.</h2>
+            <div class="relative w-full p-6 overflow-y-auto bg-blue-100 mt-10">
+                <h2 className='mb-6 text-lg font-semibold'>This application is a chatbox, but instead of talking with other people, you will be talking to hopefully your favorite friend. Yourself.</h2>
               <ul class="space-y-2">
                 <li class="flex justify-start">
                   <div class="relative max-w-xl px-4 py-6 text-gray-700 bg-white rounded shadow">
@@ -26,6 +25,29 @@ export default function ChatBox(props) {
                   </div>
                 </li>
               </ul>
+
+              <p className='text-md font-semibold my-2 mt-6'>
+              Being able to communicate effectively is one of the most important life skills to learn. Communication itself is defined as transferring information to produce greater understanding.
+              </p>
+
+              <p className='text-md font-semibold my-2'>
+              Good communication skills are essential to allow others and yourself to understand information more accurately and quickly.
+                In contrast, poor communication skills lead to frequent misunderstandings and frustration.
+              </p>
+
+              <p className='text-md font-semibold my-2'>
+              In situations where you disagree with what someone else has to say, whether it be with an employer, a co-worker, or a friend, it is important to sympathize with their point of view rather than simply try to get your message across.
+              </p>
+            
+            <h2 className='text-lg font-bold text-gray-400'>Here is a Joke or Two</h2>
+                
+              <p className='text-md my-2'>
+              "A programmer is a person who fixes a problem you don’t know you have in a way that you don’t understand."
+              </p>
+
+              <p className='text-md my-2'>
+              "Debugging is like being the detective in a crime movie where you’re also the murderer."
+              </p>
             </div>
           </div>
             {/* CHATBOX */}
@@ -60,13 +82,12 @@ export default function ChatBox(props) {
             <div class="relative w-full p-6 overflow-y-auto h-[40rem] mt-10 bg-blue-300 rounded-md shadow-md">
               <ul class="space-y-2">
                 <li>
-                {responseList.length === 0 ? localData : responseList.concat(localData)}
+                {responseList.length === 0 ? sessionData : responseList.concat(sessionData)}
                 </li>
               </ul>
             </div>
           </div>
           </div>
-        {/* </div> */}
       </div>
     </div>
 
