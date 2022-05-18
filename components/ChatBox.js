@@ -6,7 +6,7 @@ export default function ChatBox(props) {
 
   return (
     <div className='bg-gradient-to-r from-sky-500 to-white'>
-        {/* <Navbar/> */}
+        <Navbar/>
     <div class="flex justify-center mx-20" >
         <div className='grid grid-cols-2 gap-20 my-8'>
           <div class="w-full col-span-1 bg-blue-100 rounded-md shadow-md"> 
