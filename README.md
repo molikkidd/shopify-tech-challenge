@@ -26,7 +26,7 @@ Submitting the form sends the prompt to the OpenAI API
 Results are displayed in a list, sorted from newest to oldest. Each result should include the original prompt and a response from the API.
 
 Sample page: 
-
+<img width="572" alt="sample" src="https://user-images.githubusercontent.com/28605078/169088137-c821f5e8-db9f-4d1f-b410-081c2384f118.png">
 
 ## Extras
 
@@ -42,3 +42,4 @@ Make the app more specific to a single purpose. See the OpenAI Examples and prom
 
 ## Shopify Challenge
 
+<img width="1077" alt="actual" src="https://user-images.githubusercontent.com/28605078/169088204-71241bd1-9c2c-4c9b-8d8b-a042dd3850bd.png">
