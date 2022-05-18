@@ -5,7 +5,7 @@ export default function ChatBox(props) {
     const {submit, responseList, setAnimalInput, animalInput, sessionData} = props;
 
   return (
-    <div className='bg-gradient-to-r from-sky-500 to-white h-screen'>
+    <div className='bg-gradient-to-r from-sky-500 to-white'>
         {/* <Navbar/> */}
     <div class="flex justify-center mx-20" >
         <div className='grid grid-cols-2 gap-20 my-8'>
@@ -26,7 +26,7 @@ export default function ChatBox(props) {
                 </li>
               </ul>
 
-              {/* <p className='text-md font-semibold my-2 mt-6'>
+              <p className='text-md font-semibold my-2 mt-6'>
               Being able to communicate effectively is one of the most important life skills to learn. Communication itself is defined as transferring information to produce greater understanding.
               </p>
 
@@ -37,7 +37,7 @@ export default function ChatBox(props) {
 
               <p className='text-md font-semibold my-2'>
               In situations where you disagree with what someone else has to say, whether it be with an employer, a co-worker, or a friend, it is important to sympathize with their point of view rather than simply try to get your message across.
-              </p> */}
+              </p>
             
             <h2 className='text-lg font-bold text-gray-400'>Here is a Joke or Two</h2>
                 
