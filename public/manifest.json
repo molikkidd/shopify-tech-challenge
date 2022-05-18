@@ -1,0 +1,9 @@
+{
+    "name": "Shopify Challenge",
+    "short_name": "ShoppieApp",
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "start_url": "http://localhost:3000",
+    "display": "standalone",
+    "orientation": "portrait"
+  }
