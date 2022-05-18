@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -18,17 +16,29 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## The Shopify Challenge
 
-To learn more about Next.js, take a look at the following resources:
+You will write an app that sends plain text prompts to the OpenAI API and displays the results in a list.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We'd like your app to have a simple-to-use interface that includes the following:
+A form for entering text prompts
+Submitting the form sends the prompt to the OpenAI API
+Results are displayed in a list, sorted from newest to oldest. Each result should include the original prompt and a response from the API.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Sample page: 
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Extras
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+There is a lot to be improved on here, you can polish the required features by crafting a nicer design, or improve the app by adding new features! Choose something that you feel best showcases your passion and skills.
+
+If you need inspiration, here are examples of what you can work on. If you work on these ideas, we recommend choosing only one or two.
+
+
+Save responses if the user leaves or reloads the page
+Let the user choose the AI engine from a select box
+Add some presets for the user to quickly send a good prompt
+Make the app more specific to a single purpose. See the OpenAI Examples and prompt design docs for inspiration.
+
+## Shopify Challenge
+
