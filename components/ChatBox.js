@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar';
 
 export default function ChatBox(props) {
-    const {submit, responseList, setAnimalInput, animalInput, sessionData} = props;
+    const {submit, responseList, setUserInput, userInput, sessionData} = props;
 
   return (
     <div className='bg-gradient-to-r from-sky-500 to-white'>
@@ -63,10 +63,10 @@ export default function ChatBox(props) {
             <form className='w-full px-4' onSubmit={submit} >
             <input
               type="text"
-              name="animal"
+              name="user"
               placeholder=" Whats on your mind ..."
-              value={animalInput}
-              onChange={(e) => setAnimalInput(e.target.value)} 
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)} 
               class="block w-full py-2 pl-4 bg-gray-100 rounded-full outline-none focus:text-gray-700"
               />
           </form>

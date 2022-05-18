@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ChatBox from "../components/ChatBox";
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [userInput, setUserInput] = useState("");
   const [listOfResponses, setListOfResponses] = useState(Array);
   const [newData, setNewData] = useState(null);
 
@@ -13,17 +13,17 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ animal: animalInput }),
+      body: JSON.stringify({ user: userInput }),
     });
 
     const data = await response.json();
     console.log('data', data)
     // push new data to list of responses
-    listOfResponses.push(data)
+    listOfResponses.unshift(data)
     // store data in session storage
     window.sessionStorage.setItem('two', JSON.stringify(listOfResponses))
-    // resets animal input to an empty string
-    setAnimalInput("");
+    // resets user input to an empty string
+    setUserInput("");
   }
   const responseList = listOfResponses.map((list, index) => {
           return <ul className='mt-4 bg-gray-300 rounded-md p-4' i={index}>
@@ -47,8 +47,8 @@ export default function Home() {
       return <ChatBox 
        submit={onSubmit} 
        responseList={responseList}
-       setAnimalInput={setAnimalInput} 
-       animalInput={animalInput}
+       setUserInput={setUserInput} 
+       userInput={userInput}
        />
     } else {
       const storedList = newData.map((list, index) => {
@@ -68,8 +68,8 @@ export default function Home() {
       return <ChatBox 
       submit={onSubmit} 
       responseList={responseList} 
-      setAnimalInput={setAnimalInput} 
-      animalInput={animalInput}
+      setUserInput={setUserInput} 
+      userInput={userInput}
       sessionData={storedList}
       />
 } 

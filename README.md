@@ -43,3 +43,8 @@ Make the app more specific to a single purpose. See the OpenAI Examples and prom
 ## Shopify Challenge
 
 <img width="1077" alt="actual" src="https://user-images.githubusercontent.com/28605078/169088204-71241bd1-9c2c-4c9b-8d8b-a042dd3850bd.png">
+
+- PWA (Works Offline)
+- Stores user data in sessionStorage
+- Uses Tailwindcss
+- Next.js
