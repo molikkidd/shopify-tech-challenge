@@ -1,46 +1,53 @@
 import React from 'react'
 
-export default function ChatBox() {
+export default function ChatBox(props) {
+    const {submit, responseList, setAnimalInput, animalInput, localData} = props;
+
   return (
-    <div class="container mx-auto">
-      <div class="max-w-2xl border rounded">
-        <div>
-          <div class="w-full">
-              {/* top of the chatbox */}
-            <div class="relative flex items-center p-3 border-b border-gray-300">
-              <img class="object-cover w-10 h-10 rounded-full"
-                src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
-              <span class="block ml-2 font-bold text-gray-600">Chatter AI</span>
-              <span class="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3">
-              </span>
+    // bg-[url('https://media.istockphoto.com/vectors/seamless-geometric-vector-backgroundblack-figures-on-white-background-vector-id1175306662?k=20&m=1175306662&s=612x612&w=0&h=HGNeUeanPWWpL7jU6M4gwOSUZjHqWvtG50bRDooj5i0=')]"
+    <div className='bg-gradient-to-r from-sky-500 to-indigo-500'>
+
+    <div class="flex justify-center mx-20" >
+      {/* <div class="border rounded my-8 shadow-lg h-screen"> */}
+        <div className='grid grid-cols-2 gap-20 my-8'>
+          <div class="w-full col-span-1 h-screen bg-blue-100  shadow-md"> 
+            {/* INTRO */}
+            <div class="relative w-full p-6 overflow-y-auto h-[40rem] bg-blue-100 mt-10">
+                <h2 className='mb-6'>This application is a chatbox, but instead of talking with other people, you will be talking to hopefully your favorite friend. Yourself.</h2>
+              <ul class="space-y-2">
+                <li class="flex justify-start">
+                  <div class="relative max-w-xl px-4 py-6 text-gray-700 bg-white rounded shadow">
+                    <span class="block">Step 1: Start of by asking yourself a question</span>
+                  </div>
+                </li>
+                <li class="flex justify-start">
+                  <div class="relative max-w-xl px-4 py-6 text-gray-700 bg-white rounded shadow">
+                    <span class="block">Step 2: Reply to the response and keep the conversation going.</span>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <div class="flex items-center justify-between w-full p-3 border-t bg-blue-100 h-40 border-gray-300">
+          </div>
+            {/* CHATBOX */}
+          <div className='w-full col-span-1'>
+          <div class="relative flex items-center p-3 border-b border-gray-300 bg-amber-300 rounded-md hover:bg-gradient-to-r from-amber-500 to-yellow-300">
+              <img class="object-cover w-10 h-10 rounded-full"
+                src="https://stealthoptional.com/wp-content/uploads/2021/12/1f356a16-4821-4e31-9578-189d51793065-mandalorian-babyyoda-sideshow-photo1-frontpage-700x319-1.jpg" alt="username" />
+              <span class="block ml-2 font-bold text-gray-600">Chatter AI</span>
 
-              <button>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </button>
-              <button>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                </svg>
-              </button>
-
-              <input type="text" placeholder="Message"
-                class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700"
-                name="message" required />
-              <button>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                </svg>
-              </button>
+            </div>
+            <div class="flex items-center justify-between w-full p-3 border-t bg-yellow-200 h-40 border-gray-300 shadow-md rounded-md">
+            
+            <form className='w-full px-4' onSubmit={submit} >
+            <input
+              type="text"
+              name="animal"
+              placeholder=" Whats on your mind ..."
+              value={animalInput}
+              onChange={(e) => setAnimalInput(e.target.value)} 
+              class="block w-full py-2 pl-4 bg-gray-100 rounded-full outline-none focus:text-gray-700"
+              />
+          </form>
               <button type="submit">
                 <svg class="w-5 h-5 text-gray-500 origin-center transform rotate-90" xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20" fill="currentColor">
@@ -50,36 +57,18 @@ export default function ChatBox() {
               </button>
             </div>
             {/* THE CHATBOX */}
-            <div class="relative w-full p-6 overflow-y-auto h-[40rem]">
-
+            <div class="relative w-full p-6 overflow-y-auto h-[40rem] mt-10 bg-blue-300 rounded-md shadow-md">
               <ul class="space-y-2">
-                <li class="flex justify-start">
-                  <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-                    <span class="block">Hi</span>
-                  </div>
-                </li>
-                <li class="flex justify-end">
-                  <div class="relative max-w-xl px-4 py-2 text-gray-700 bg-gray-100 rounded shadow">
-                    <span class="block">Hiiii</span>
-                  </div>
-                </li>
-                <li class="flex justify-end">
-                  <div class="relative max-w-xl px-4 py-2 text-gray-700 bg-gray-100 rounded shadow">
-                    <span class="block">how are you?</span>
-                  </div>
-                </li>
-                <li class="flex justify-start">
-                  <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-                    <span class="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </span>
-                  </div>
+                <li>
+                {responseList.length === 0 ? localData : responseList.concat(localData)}
                 </li>
               </ul>
-
             </div>
-
           </div>
-        </div>
+          </div>
+        {/* </div> */}
       </div>
     </div>
+
   )
 }

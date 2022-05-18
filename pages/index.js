@@ -24,14 +24,13 @@ export default function Home() {
     // push new data to list of responses
     listOfResponses.push(data)
     // store data in session storage
-    window.localStorage.setItem('one', JSON.stringify(listOfResponses))
+    window.localStorage.setItem('two', JSON.stringify(listOfResponses))
     // resets animal input to an empty string
     setAnimalInput("");
   }
   console.log('listOfResponses', listOfResponses)
 
   const responseList = listOfResponses.map((list, index) => {
-    console.log('list', list, 'and index', index)
           return <ul className='mt-4 bg-gray-300 rounded-md p-4' i={index}>
                     <li>
                       <div className="mb-3">
@@ -46,27 +45,24 @@ export default function Home() {
   })
   // access data in local storage to use when offline and throughout the local
   useEffect(() => {
-    const localData = localStorage.getItem('one')
+    const localData = localStorage.getItem('two')
     console.log('localData', JSON.parse(localData))
     
     setNewData(JSON.parse(localData))
    
   }, [])
   
-  
-  
-  // const storedData = newData.map((list, index) => {
-    //   console.log('storedlist', list, 'and storedindex', index)
-    
-    // })
     if (newData === null ) {
-      return <ChatBox/>
-      // return <SubForm submit={onSubmit} responseList={responseList} setAnimalInput={setAnimalInput} animalInput={animalInput}/>
+      return <ChatBox 
+       submit={onSubmit} 
+       responseList={responseList}
+       setAnimalInput={setAnimalInput} 
+       animalInput={animalInput}
+       />
     } else {
-
     const storedList = newData.map((list, index) => {
-    console.log('list', list, 'and index', index)
-          return <ul className='mt-4 bg-gray-300 rounded-md p-4' i={index}>
+    console.log('storedlist', list)
+          return <ul className='mt-4 bg-white rounded-md p-4 shadow-md' i={index}>
                     <li>
                       <div className="mb-3">
                         <h1>Prompt:{list.text}  </h1>  
@@ -78,13 +74,15 @@ export default function Home() {
                 </ul>
 
   })
-  console.log('storedList', storedList)
-  return <SubForm submit={onSubmit} 
-          responseList={responseList} 
-          setAnimalInput={setAnimalInput} 
-          animalInput={animalInput}
-          localData={storedList}
+
+  return <ChatBox 
+  submit={onSubmit} 
+  responseList={responseList} 
+  setAnimalInput={setAnimalInput} 
+  animalInput={animalInput}
+  localData={storedList}
   />
+
 
 
 } 
